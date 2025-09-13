@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Income Dashboard - Asset Guidance Group</title>
+    <meta name="description" content="Professional retirement income calculator and analysis tool for comprehensive financial planning.">
+    
+    <!-- Asset Guidance Group Branding -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        .dashboard-container {
+            max-width: 100%;
+            margin: 0;
+            background: white;
+            border-radius: 0;
+        }
+        
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 900px;
+            overflow: hidden;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            color: #1E3A8A;
+        }
+        
+        .footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .iframe-container {
+                height: 800px;
+            }
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #1E3A8A;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <!-- Replace with your logo -->
+        <!-- <img src="logo.png" alt="Asset Guidance Group" class="logo"> -->
+        <h1>Retirement Income Calculator</h1>
+        <p>Comprehensive retirement planning analysis with Monte Carlo simulations, tax optimization, and Social Security planning strategies.</p>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="iframe-container">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Loading retirement calculator...
+            </div>
+            
+            <!-- REPLACE 'YOUR_STREAMLIT_URL_HERE' with your actual Streamlit app URL -->
+            <iframe 
+                src="YOUR_STREAMLIT_URL_HERE" 
+                title="Retirement Income Calculator Dashboard"
+                onload="document.getElementById('loading').style.display='none';"
+                allow="accelerometer; camera; encrypted-media; geolocation; gyroscope; microphone">
+                <p>Your browser does not support iframes. Please visit our 
+                <a href="YOUR_STREAMLIT_URL_HERE">retirement calculator</a> directly.</p>
+            </iframe>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 <a href="https://assetguidancegroup.com">Asset Guidance Group</a> | 
+        Professional Financial Planning Services | 
+        <a href="mailto:info@assetguidancegroup.com">Contact Us</a></p>
+    </footer>
+
+    <script>
+        // Optional: Add Google Analytics or other tracking
+        // gtag('config', 'GA_MEASUREMENT_ID');
+        
+        // Handle iframe errors
+        window.addEventListener('message', function(event) {
+            if (event.data === 'streamlit:error') {
+                document.getElementById('loading').innerHTML = 
+                    '<p style="color: red;">Unable to load calculator. Please try refreshing the page.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
