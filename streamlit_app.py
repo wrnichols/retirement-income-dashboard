@@ -160,6 +160,13 @@ def retirement_calculator(
 def main():
     st.set_page_config(page_title="Retirement Income Calculator", layout="wide", page_icon="💰")
     
+    # Enable iframe embedding
+    st.markdown("""
+        <script>
+            window.parent.postMessage({type: 'streamlit:frameHeight', height: document.body.scrollHeight}, '*');
+        </script>
+    """, unsafe_allow_html=True)
+    
     st.title("🏦 Retirement Income Calculator Dashboard")
     st.markdown("---")
     

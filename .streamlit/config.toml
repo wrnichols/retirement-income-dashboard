@@ -8,6 +8,7 @@ textColor = "#1F2937"
 headless = true
 enableCORS = false
 enableXsrfProtection = false
+allowRunOnSave = true
 
 [browser]
 gatherUsageStats = false
