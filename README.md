@@ -1,6 +1,12 @@
-# Retirement Income Calculator Dashboard
+# Retirement Income Calculator Dashboards
 
-A comprehensive Streamlit dashboard for calculating and analyzing retirement income needs for financial advisory clients.
+Two comprehensive Streamlit dashboards for financial advisory clients:
+
+## 🏦 Dashboard 1: Retirement Income Calculator
+Calculates minimum assets needed to meet desired spending goals.
+
+## 💸 Dashboard 2: Retirement Spending Calculator
+Determines sustainable spending levels based on current assets.
 
 ## Features
 
@@ -18,26 +24,49 @@ A comprehensive Streamlit dashboard for calculating and analyzing retirement inc
 pip install -r requirements.txt
 ```
 
-2. Run the dashboard:
+2. Run the dashboards:
+
+**Income Calculator (Asset Requirements):**
 ```bash
-streamlit run retirement_dashboard.py
+streamlit run streamlit_app.py
+```
+
+**Spending Calculator (Sustainable Spending):**
+```bash
+python run_spending_dashboard.py
+# OR
+streamlit run retirement_spending_dashboard.py --server.port 8502
 ```
 
 ## Usage
 
-1. Enter client demographics and retirement timeline in the sidebar
+### Dashboard 1: Income Calculator
+1. Enter client demographics and desired monthly income
 2. Input Social Security benefit estimates at different claiming ages
 3. Add pension, other income sources, and LTC insurance coverage
-4. Click "Calculate Retirement Needs" to generate analysis
-5. Review charts and detailed summary for client presentation
+4. Click "Calculate Retirement Needs" to see required assets
+5. Review charts showing income sources vs. needs
+
+### Dashboard 2: Spending Calculator
+1. Enter current assets and investment risk tolerance
+2. Input demographics and retirement timeline
+3. Add Social Security and other income projections
+4. Click "Calculate Sustainable Spending" to see spending levels
+5. Review Monte Carlo analysis with three confidence levels (80%, 90%, 95%)
 
 ## Key Outputs
 
+### Dashboard 1: Income Calculator
 - **Assets Needed at Retirement**: Amount required with 90% success probability
 - **Assets Needed Today**: Present value of retirement goal
 - **Required Growth Rate**: Annual return needed to reach target
 - **Income Projections**: Year-by-year breakdown of needs vs. sources
-- **Success Probability**: Monte Carlo analysis across asset levels
+
+### Dashboard 2: Spending Calculator
+- **Sustainable Spending Levels**: Monthly amounts at 80%, 90%, and 95% success rates
+- **Assets at Retirement**: Projected portfolio value at retirement
+- **Success Probability Analysis**: Monte Carlo results across spending levels
+- **Income Source Breakdown**: Social Security, pension, and other income over time
 
 ## Assumptions
 
